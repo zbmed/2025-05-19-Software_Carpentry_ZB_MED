@@ -7,16 +7,49 @@
 {% include install_instructions/git.html %}
 {% include install_instructions/editor.html %}
 
-{% if site.flavor == "r" %}
-{% include install_instructions/r.html %}
-{% elsif site.flavor == "python" %}
-{% include install_instructions/python.html %}
-{% elsif site.flavor == "FIXME" %}
-{% include install_instructions/r.html %}
-{% include install_instructions/python.html %}
-{% else %}
-{% include warning-flavor.html %}
-{% endif %}
+<div id="python-setup">
+ <h3>Python</h3>
+ <p>
+ Miniforge Installation Instructions:
+ </p>
+ <ol>
+ <li>
+ <strong>Download and install Miniforge</strong><br>
+ Visit the <a href="https://conda-forge. org/miniforge">conda-forge download page</a>.<br>
+ Download the appropriate Miniforge3 installer:<br>
+ <ul>
+ <li><strong>Windows:</strong> file with the extension <code>.exe</code>. </li>
+ <li><strong>macOS (Intel):</strong> file with <code>MacOSX-x86_64</code>.</li>
+ <li><strong>macOS (Apple Silicon):</strong> file with <code>MacOSX-arm64</code>. </li>
+ <li><strong>Linux:</strong> File suitable for your architecture (e.g. <code>x86_64</code>, <code>arm64</code>).</li>
+ </ul>
+ <p>
+ For macOS and Linux, the file is provided as an executable <code>.sh</code> file. Carry out the following steps:
+ </p>
+ <ol>
+ <li>Open a terminal.</li>
+ <li>Navigate to the directory in which the downloaded <code>.sh</code> file is located. For example:<br>
+ <code>cd ~/Downloads</code>
+ </li>
+ <li>Execute the file with the following command:<br>
+ <code>bash Miniforge3-Linux-x86_64.sh</code> (Replace the file name with the corresponding name of the downloaded file.)</li>
+ <li>Follow the instructions on the screen. Accept the license terms and use the default settings unless otherwise required.</li>
+ </ol>
+ </li>
+ <li>
+ <strong>Install Jupyter Notebook, Pandas, Matplotlib and Spyder</strong><br>
+ This step is important because we use Jupyter Notebook as a development environment and use additional libraries such as Pandas, Matplotlib, urllib. request and json in the course.<br>
+ Open Miniforge Prompt and enter the following commands:<br>
+ <code>conda install -c conda-forge notebook pandas matplotlib spyder</code><br>
+ Confirm the Proceed request with "y".
+    </li>
+ <li>
+ <strong>Start Jupyter Notebook</strong><br>
+ After installation, you can start Jupyter Notebook with the following command:<br>
+ <code>jupyter notebook</code>
+ </li>
+ </ol>
+</div>
 
 {% comment %}
 The following setup instructions are commented out because Carpentries workshops
